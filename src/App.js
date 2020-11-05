@@ -1,5 +1,7 @@
 import React from 'react'
 import Tabela from './komponente/tabela'
+// import Atom from './komponente/Atom'
+
 import './App.sass'
 
 function App() {

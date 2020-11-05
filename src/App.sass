@@ -1,3 +1,8 @@
+// .App
+// 	margin: auto
+// 	width: 700px
+// 	height: 700px
+
 .tabela
 	width: 90%
 	margin: auto
@@ -8,8 +13,53 @@
 	grid-template-columns: repeat(18, 1fr)
 
 	&-card
-		padding: 1rem
+		padding: .4rem
 		background: #777777
-		display: block
+		display: flex
+		flex-flow: column
 		position: relative
 
+		&-num
+			position: absolute
+			top: .4rem
+			right: .4rem
+			font-size: .8rem
+		&-name
+			font-size: .5rem
+		&-sy
+			font-size: 1.6rem
+		&-img
+			// width: 100%
+			height: .5rem
+			position: relative
+			// display: block
+		&-svg
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			position: absolute
+			// display: block
+			svg
+				width: 100%
+				height: 100%
+
+			img
+				width: 100%
+				height: 100%
+				position: absolute
+				object-fit: fill
+
+$shells: "M950,500c0,248.5-201.5,450-450,450S50,748.5,50,500 S251.5,50,500,50S950,251.5,950,500", "M900,500c0,220.9-179.1,400-400,400S100,720.9,100,500 s179.1-400,400-400S900,279.1,900,500", "M850,500c0,193.3-156.7,350-350,350S150,693.3,150,500 s156.7-350,350-350S850,306.7,850,500", "M800,500c0,165.7-134.3,300-300,300S200,665.7,200,500 s134.3-300,300-300S800,334.3,800,500", "M750,500c0,138.1-111.9,250-250,250S250,638.1,250,500 s111.9-250,250-250S750,361.9,750,500", "M700,500c0,110.5-89.5,200-200,200s-200-89.5-200-200 s89.5-200,200-200S700,389.5,700,500", "M650,500c0,82.8-67.2,150-150,150s-150-67.2-150-150 s67.2-150,150-150S650,417.2,650,500", "M600,500c0,55.2-44.8,100-100,100s-100-44.8-100-100 s44.8-100,100-100S600,444.8,600,500", "M550,500c0,27.6-22.4,50-50,50c-27.6,0-50-22.4-50-50 c0-27.6,22.4-50,50-50C527.6,450,550,472.4,550,500z"
+@each $path in $shells
+	$i: index($shells, $path)
+	#atom#{$i}
+		animation: path-animation linear infinite forwards
+		animation-delay: 1/$i *5s
+		animation-duration: 1/$i *10s
+		offset-path: path($path)
+
+@keyframes path-animation
+	100%
+		// motion-offset: 100%
+		offset-distance: 100%
